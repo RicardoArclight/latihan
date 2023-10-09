@@ -1,0 +1,27 @@
+body {
+	font-family: "Poppins", sans-serif;
+}
+
+.page-content {
+	margin-top: 100px;
+	// padding: 100px;
+	padding-bottom: 150px;
+}
+
+footer {
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	border-top: 1px solid #e4e4e4;
+	// margin-top: 150px;
+	background-color: #fff;
+
+	p {
+		color: #979797;
+	}
+}
+
+.form-control {
+	background-color: #f3f3f3;
+}
