@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Diskominfosantik Provinsi Kalteng | Log in</title>
   <?php $pengaturan = $this->m_data->get_data('pengaturan')->row(); ?>
-  <link href="<?php echo base_url() . '/gambar/website/' . $pengaturan->logo; ?>" rel="icon">
+  
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -23,9 +23,9 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="<?php echo base_url(); ?>" class="h1"><b>POLRES
+        <a href="<?php echo base_url(); ?>" class="h1"><b>Diskominfosantik
             </br>
-            GUNUNG MAS</b></a>
+            Provinsi Kalteng</b></a>
       </div>
       <?php
       if (isset($_GET['alert'])) {

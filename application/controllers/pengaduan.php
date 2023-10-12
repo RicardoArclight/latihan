@@ -11,9 +11,6 @@ class Pengaduan extends CI_Controller {
 	}
     public function pengaduan_aksi()
 	{
-		
-	
-
 			$pengaduan = $this->input->post('pengaduan');
 			$nama = $this->input->post('nama');
 			$email = $this->input->post('email');

@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined ('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
     function __construct()
@@ -20,6 +20,13 @@ class Dashboard extends CI_Controller {
     }
 	public function index()
 	{
+		
+		// // hitung jumlah pengguna
+		$data['jumlah_pengguna'] = $this->m_data->get_data('pengguna')->num_rows();
+		// // hitung jumlah halaman
+		$data['jumlah_pengaduan'] = $this->m_data->get_data('pengaduan')->num_rows();
+
+
 		$this->load->view('admin/layout/header');
 		$this->load->view('admin/layout/navbar');
 		$this->load->view('admin/layout/sidebar');

@@ -25,12 +25,12 @@ class Login extends CI_Controller
 		$this->load->view('v_daftar', $data);
 	}
 
-	public function get_prodi()
-	{
-		$fakultas_id = $this->input->post('fakultas_id');
-		$data = $this->db->query("SELECT * FROM prodi WHERE fakultas=$fakultas_id order by prodi_id desc")->result();
-		echo json_encode($data);
-	}
+	// public function get_prodi()
+	// {
+	// 	$fakultas_id = $this->input->post('fakultas_id');
+	// 	$data = $this->db->query("SELECT * FROM prodi WHERE fakultas=$fakultas_id order by prodi_id desc")->result();
+	// 	echo json_encode($data);
+	// }
 
 	public function daftar_aksi()
 	{
