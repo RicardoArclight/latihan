@@ -2,7 +2,7 @@
 	<section class="content-header">
 		<h1>
 			Pengguna
-			<small>Pengguna Website</small>
+			<small>Website</small>
 		</h1>
 	</section>
 
@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 
-				<a href="<?php echo base_url() . 'admin/pengguna_tambah'; ?>" class="btn btn-sm btn-primary">Buat pengguna baru</a>
+				<a href="<?php echo base_url() . 'dashboard/pengguna_tambah'; ?>" class="btn btn-sm btn-primary">Buat pengguna baru</a>
 
 				<br />
 				<br />
@@ -54,8 +54,8 @@
 											?>
 										</td>
 										<td>
-											<a href="<?php echo base_url() . 'admin/pengguna_edit/' . $p->id; ?>" class="btn btn-warning btn-sm"> <i class="fa fa-pen"></i> </a>
-											<a href="<?php echo base_url() . 'admin/pengguna_hapus/' . $p->id; ?>" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i> </a>
+											<a href="<?php echo base_url() . 'dashboard/pengguna_edit/' . $p->id; ?>" class="btn btn-warning btn-sm"> <i class="fa fa-pen"></i> </a>
+											<a href="<?php echo base_url() . 'dashboard/pengguna_hapus/' . $p->id; ?>" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i> </a>
 										</td>
 									</tr>
 								<?php } ?>

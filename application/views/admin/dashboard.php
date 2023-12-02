@@ -15,11 +15,11 @@
 	<section class="content">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-3 col-6">
+				<div class="col-lg-4 col-6">
 					<div class="small-box bg-info">
 						<div class="inner">
-							<h3><?php echo $jumlah_berita ?></h3>
-							<p>Jumlah Berita</p>
+							<h3><?php echo $jumlah_pengaduan ?></h3>
+							<p>Jumlah Pengaduan</p>
 						</div>
 						<div class="icon">
 							<i class="ion ion-android-list"></i>
@@ -27,23 +27,11 @@
 					</div>
 				</div>
 
-				<div class="col-lg-3 col-6">
-					<div class="small-box bg-red">
-						<div class="inner">
-							<h3><?php echo $jumlah_pengaduan ?></h3>
-							<p>Jumlah Pengaduan</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-android-document"></i>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-6">
+				<div class="col-lg-4 col-6">
 					<div class="small-box bg-green">
 						<div class="inner">
-							<h3><?php echo $jumlah_kategori  ?></h3>
-							<p>Jumlah Kategori</p>
+							<h3><?php echo $jumlah_ditanggapi  ?></h3>
+							<p>Jumlah Sudah Ditanggapi</p>
 						</div>
 						<div class="icon">
 							<i class="ion ion-pie-graph"></i>
@@ -51,7 +39,7 @@
 					</div>
 				</div>
 
-				<div class="col-lg-3 col-6">
+				<div class="col-lg-4 col-6">
 					<div class="small-box bg-yellow">
 						<div class="inner">
 							<h3><?php echo $jumlah_pengguna ?></h3>

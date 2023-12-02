@@ -26,11 +26,12 @@ class Dashboard extends CI_Controller {
 		// // hitung jumlah halaman
 		$data['jumlah_pengaduan'] = $this->m_data->get_data('pengaduan')->num_rows();
 
+		$data['jumlah_ditanggapi'] =  $this->db->query('SELECT * FROM pengaduan WHERE status_pengaduan = "Ditanggapi"')->num_rows();
 
 		$this->load->view('admin/layout/header');
 		$this->load->view('admin/layout/navbar');
 		$this->load->view('admin/layout/sidebar');
-		$this->load->view('admin/dashboard');
+		$this->load->view('admin/dashboard', $data);
 		$this->load->view('admin/layout/footer');
 	}
 	
@@ -289,10 +290,10 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/layout/header');
 		$this->load->view('admin/layout/navbar');
 		$this->load->view('admin/layout/sidebar');
-		$this->load->view('admin/pengguna/pengguna_tambah', $data);
+		$this->load->view('admin/pengguna/pengguna_tambah');
 		$this->load->view('admin/layout/footer');
 	}
-
+	
 	public function pengguna_aksi()
 	{
 		// Wajib isi
@@ -321,6 +322,7 @@ class Dashboard extends CI_Controller {
 				'status' => $status
 			);
 
+
 			$this->m_data->insert_data($data, 'pengguna');
 
 			redirect(base_url() . 'admin/pengguna');
@@ -328,10 +330,9 @@ class Dashboard extends CI_Controller {
 			$this->load->view('admin/layout/header');
 			$this->load->view('admin/layout/navbar');
 			$this->load->view('admin/layout/sidebar');
-			$this->load->view('admin/pengguna/pengguna_tambah', $data);
+			$this->load->view('admin/pengguna/pengguna_tambah');
 			$this->load->view('admin/layout/footer');
 		}
-	
 	}
 
 	public function pengguna_edit($id)
@@ -447,6 +448,122 @@ class Dashboard extends CI_Controller {
 		redirect(base_url() . 'admin/pengguna');
 	}
 	// end crud pengguna
+
+	public function pengaturan()
+	{
+		// check_admin();
+		$data['pengaturan'] = $this->m_data->get_data('pengaturan')->row();
+		$this->load->view('admin/layout/header');
+		$this->load->view('admin/layout/navbar');
+		$this->load->view('admin/layout/sidebar');
+		$this->load->view('admin/pengaturan', $data);
+		$this->load->view('admin/layout/footer');
+	}
+
+	public function pengaturan_update()
+	{
+		// Wajib isi nama dan deskripsi website
+		$this->form_validation->set_rules('nama', 'Nama Website', 'required');
+		$this->form_validation->set_rules('deskripsi', 'Deskripsi Website', 'required');
+
+		if ($this->form_validation->run() != false) {
+
+			$nama = $this->input->post('nama');
+			$deskripsi = $this->input->post('deskripsi');
+			$link_email = $this->input->post('link_email');
+			$link_wa = $this->input->post('link_wa');
+			
+
+			$where = array();
+
+			$data = array(
+				'nama' => $nama,
+				'deskripsi' => $deskripsi,
+				'link_email' => $link_email,
+				'link_wa' => $link_wa,
+			);
+
+			// update pengaturan
+			$this->m_data->update_data($where, $data, 'pengaturan');
+
+			// Periksa apakah ada gambar logo yang diupload
+			if (!empty($_FILES['logo']['name'])) {
+
+				$config['upload_path']   = './gambar/website/';
+				$config['allowed_types'] = 'jpg|png';
+				$config['file_name']     = 'logo';
+
+				$this->load->library('upload', $config);
+
+				if ($this->upload->do_upload('logo')) {
+					// mengambil data tentang gambar logo yang diupload
+					$gambar = $this->upload->data();
+
+					$logo = $gambar['file_name'];
+					$where = array();
+					$a = $this->m_data->edit_data($where, 'pengaturan')->row();
+					$target_file = './gambar/website/' . $a->logo;
+					unlink($target_file);
+
+					$this->db->query("UPDATE pengaturan SET logo='$logo'");
+				}
+			}
+
+			if (!empty($_FILES['bg']['name'])) {
+
+				$config1['upload_path']   = './gambar/website/';
+				$config1['allowed_types'] = 'jpg|png';
+				$config1['file_name']     = 'bg';
+
+				$this->load->library('upload', $config1);
+
+				if ($this->upload->do_upload('bg')) {
+					// mengambil data tentang gambar logo yang diupload
+					$bgg = $this->upload->data();
+
+					$bg = $bgg['file_name'];
+					$where = array();
+					$b = $this->m_data->edit_data($where, 'pengaturan')->row();
+					$target_file = './gambar/website/' . $b->bg;
+					unlink($target_file);
+
+					$this->db->query("UPDATE pengaturan SET bg='$bg'");
+				}
+			}
+
+			if (!empty($_FILES['struktur']['name'])) {
+
+				$config2['upload_path']   = './gambar/website/';
+				$config2['allowed_types'] = 'jpg|png';
+				$config2['file_name']     = 'struktur';
+
+				$this->load->library('upload', $config2);
+
+				if ($this->upload->do_upload('struktur')) {
+					// mengambil data tentang gambar logo yang diupload
+					$strukturg = $this->upload->data();
+
+					$struktur = $strukturg['file_name'];
+					$where = array();
+					$b = $this->m_data->edit_data($where, 'pengaturan')->row();
+					$target_file = './gambar/website/' . $b->struktur;
+					unlink($target_file);
+
+					$this->db->query("UPDATE pengaturan SET struktur='$struktur'");
+				}
+			}
+
+			redirect(base_url() . 'dashboard/pengaturan/?alert=sukses');
+		} else {
+			$data['pengaturan'] = $this->m_data->get_data('pengaturan')->result();
+
+			$this->load->view('admin/layout/header');
+			$this->load->view('admin/layout/navbar');
+			$this->load->view('admin/layout/sidebar');
+			$this->load->view('admin/pengaturan', $data);
+			$this->load->view('admin/layout/footer');
+		}
+	}
 
 	
 }

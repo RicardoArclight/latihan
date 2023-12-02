@@ -10,7 +10,7 @@
 
 		<div class="row">
 			<div class="col-lg-6">
-				<a href="<?php echo base_url() . 'admin/pengguna'; ?>" class="btn btn-sm btn-primary">Kembali</a>
+				<a href="<?php echo base_url() . 'dashboard/pengguna'; ?>" class="btn btn-sm btn-primary">Kembali</a>
 
 				<br />
 				<br />

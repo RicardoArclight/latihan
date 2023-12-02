@@ -10,7 +10,7 @@
 
 		<div class="row">
 			<div class="col-lg-6">
-				<a href="<?php echo base_url() . 'admin/pengguna'; ?>" class="btn btn-sm btn-primary">Kembali</a>
+				<a href="<?php echo base_url() . 'dashboard/pengguna'; ?>" class="btn btn-sm btn-primary">Kembali</a>
 
 				<br />
 				<br />
@@ -54,9 +54,9 @@
 											<option <?php if ($p->level == "admin") {
 														echo "selected='selected'";
 													} ?> value="admin">Admin</option>
-											<option <?php if ($p->level == "penulis") {
+											<option <?php if ($p->level == "petugas") {
 														echo "selected='selected'";
-													} ?> value="penulis">Penulis</option>
+													} ?> value="petugas">Petugas</option>
 										</select>
 										<?php echo form_error('level'); ?>
 									</div>

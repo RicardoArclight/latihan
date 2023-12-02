@@ -16,6 +16,7 @@ class Pengaduan extends CI_Controller {
 			$email = $this->input->post('email');
 			$hp = $this->input->post('hp');
 			$tanggal = date('Y-m-d H:i:s');
+			$tiket = 'P-' . date(Ymd) . str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
 
 			$data = array(
 				'nama_pengadu' => $nama,
@@ -23,7 +24,8 @@ class Pengaduan extends CI_Controller {
 				'no_hp' => $hp,
 				'isi_pengaduan' => $pengaduan,
 				'tanggal_pengaduan' => $tanggal,
-				'status_pengaduan' => "Belum"
+				'status_pengaduan' => "Belum",
+				'tiket' => $tiket
 			);
 
 			$this->m_data->insert_data($data, 'pengaduan');

@@ -19,6 +19,7 @@
 </head>
 
 <body class="dark-mode hold-transition login-page">
+<body style="background-image: url('<?php echo base_url(); ?>asset/assets/images/bg_login.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
   <div class="login-box">
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">

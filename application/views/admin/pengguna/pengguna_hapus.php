@@ -10,7 +10,7 @@
 
 		<div class="row">
 			<div class="col-lg-6">
-				<a href="<?php echo base_url() . 'admin/pengguna'; ?>" class="btn btn-sm btn-primary">Kembali</a>
+				<a href="<?php echo base_url() . 'dashboard/pengguna'; ?>" class="btn btn-sm btn-primary">Kembali</a>
 
 				<br />
 				<br />
@@ -21,7 +21,7 @@
 					</div>
 					<div class="card-body">
 
-						<p><b><?php echo $hapus->nama; ?></b> akan dihapus. dan semua artikel yang ditulis oleh <b><?php echo $hapus->nama; ?></b> akan dipindahkan ke ?</p>
+						<!-- <p><b><?php echo $hapus->nama; ?></b><b><?php echo $hapus->nama; ?></b></p> -->
 
 						<form method="post" action="<?php echo base_url('dashboard/pengguna_hapus_aksi') ?>">
 							<div class="card-body">
@@ -40,7 +40,7 @@
 							</div>
 
 							<div class="card-footer">
-								<input type="submit" class="btn btn-success" value="Hapus Pengguna & Pindahkan Artikel">
+								<input type="submit" class="btn btn-success" value="Hapus Pengguna">
 							</div>
 						</form>
 

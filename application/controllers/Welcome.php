@@ -18,11 +18,28 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
+	function __construct()
+	{
+		parent::__construct();
+
+		date_default_timezone_set('Asia/Jakarta');
+		$this->load->model('m_data');
+
+    }
 	public function index()
 	{
+		$data['pengaturan'] = $this->m_data->get_data('pengaturan')->row();
+		$judul = $data['pengaturan']->deskripsi;
+		// var_dump($judul);
+		$kata_kata = explode(' ', $judul);
+
+// Ambil dua kata pertama
+$data['satu'] = $kata_kata[0] . ' ' . $kata_kata[1];
+$data['dua'] = $kata_kata[2] . ' ' . $kata_kata[3] . ' ' . $kata_kata[4];
+// var_dump($data);
 		$this->load->view('front/layout/header');
 		$this->load->view('front/layout/navbar');
-		$this->load->view('front/index');
+		$this->load->view('front/index',$data);
 		$this->load->view('front/layout/footer');
 	}
 	

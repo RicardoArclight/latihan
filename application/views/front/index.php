@@ -1,22 +1,22 @@
 <body>
   <!-- ***** Main Banner Area Start ***** -->
   <div class="swiper-container" id="top">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="slide-inner" style="background-image:url(<?php echo base_url(); ?>asset/assets/images/)">
+        <div class="slide-inner" style="background-image:url(<?php echo base_url(); ?>asset/assets/images/diskominfo.jpg)">
           <div class="container">
             <div class="row">
               <div class="col-lg-8">
                 <div class="header-text">
-                  <h2>Get <em>ready</em> for your business<br>&amp; upgrade <em>all aspects</em></h2>
+                  <h2><?php echo $satu ?><em></em><br><em><?php echo $dua ?></em></h2>
                   <div class="div-dec"></div>
-                  <p>Mexant HTML5 Template is provided for free of charge. This layout is based on Boostrap 5 CSS framework. Anyone can download and edit for any professional website. Thank you for visiting TemplateMo website.</p>
+                  <input class="form-control form-control-sidebar" type="search" placeholder="cari tiket" aria-label="Search"/>
+              <P></P>
+                  <!-- <p>Mexant HTML5 Template is provided for free of charge. This layout is based on Boostrap 5 CSS framework. Anyone can download and edit for any professional website. Thank you for visiting TemplateMo website.</p> -->
                   <div class="buttons">
                     <div class="green-button">
-                      <a href="#">Discover More</a>
+                      <a href="#">cari</a>
                     </div>
                     <div class="orange-button">
-                      <a href="#">Contact Us</a>
+                      <!-- <a href="#">Contact Us</a> -->
                     </div>
                   </div>
                 </div>
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide">
+      <!-- <div class="swiper-slide">
         <div class="slide-inner" style="background-image:url(<?php echo base_url(); ?>asset/assets/images/)">
           <div class="container">
             <div class="row">
@@ -73,12 +73,12 @@
       </div>
     </div>
     <div class="swiper-button-next swiper-button-white"></div>
-    <div class="swiper-button-prev swiper-button-white"></div>
+    <div class="swiper-button-prev swiper-button-white"></div> -->
   </div>
 
   <!-- ***** Main Banner Area End ***** -->
 
-  <section class="services" id="services">
+  <!-- <section class="services" id="services">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -125,9 +125,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section class="simple-cta">
+  <!-- <section class="simple-cta">
     <div class="container">
       <div class="row">
         <div class="col-lg-5">
@@ -145,9 +145,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section class="about-us" id="about">
+  <!-- <section class="about-us" id="about">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
@@ -287,12 +287,12 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
   
 
-  <section class="partners">
+  <!-- <section class="partners">
     <div class="container">
       <div class="row">
         <div class="col-lg-2 col-sm-4 col-6">
@@ -327,6 +327,6 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   

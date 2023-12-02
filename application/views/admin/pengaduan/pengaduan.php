@@ -8,16 +8,16 @@
 				<div class="col-lg-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">Pengaduan</h3>
+							<h3 class="card-title">Daftar Pengaduan</h3>
 						</div>
 						<div class="card-body">
 							<table id="example2" class="table table-bordered table-striped">
 								<thead>
 									<tr>
 										<th width="1%">NO</th>
-										<th>Nama</th>
+										<th>Tiket</th>
+										<th width="15%">Nama</th>
 										<th>Email</th>
-										<th>Jenis</th>
 										<th>Isi</th>
 										<th>Tanggal</th>
 										<th>Status</th>
@@ -31,9 +31,10 @@
 									?>
 										<tr>
 											<td><?php echo $no++; ?></td>
+											<td><?php echo $k->tiket; ?></td>
 											<td><?php echo $k->nama_pengadu; ?></td>
 											<td><?php echo $k->email_pengadu; ?></td>
-											<td><?php echo $k->jenis_pengaduan; ?></td>
+											<!-- <td><?php echo $k->jenis_pengaduan; ?></td> -->
 											<td><?php echo $k->isi_pengaduan; ?></td>
 											<td><?php echo $k->tanggal_pengaduan; ?></td>
 											<td>
@@ -47,7 +48,8 @@
 
 											</td>
 											<td>
-												<a href="<?php echo base_url() . 'admin/pengaduan_balas/' . $k->id; ?>" class="btn btn-warning btn-sm"> <i class="fa fa-pen"></i> </a>
+												<a href="<?php echo base_url() . 'dashboard/pengaduan_balas/' . $k->id; ?>" class="btn btn-warning btn-sm"> <i class="fa fa-pen"></i> </a>
+												<a href="" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i> </a>
 											</td>
 										</tr>
 									<?php } ?>

@@ -2,8 +2,8 @@
 	<section class="content-header">
 		<h1>
 			Profil
-			<small>Update Profil Pengguna</small>
 		</h1>
+		<small>Update Profil Pengguna</small>
 	</section>
 
 	<section class="content">
@@ -27,17 +27,17 @@
 						
 						<?php foreach($profil as $p){ ?>
 
-							<form method="post" action="<?php echo base_url('admin/profil_update') ?>">
+							<form method="post" action="<?php echo base_url('dashboard/profil_update') ?>">
 								<div class="box-body">
 									<div class="form-group">
 										<label>Nama</label>
-										<input type="text" name="nama" class="form-control" placeholder="Masukkan nama .." value="<?php echo $p->pengguna_nama; ?>">
+										<input type="text" name="nama" class="form-control" placeholder="Masukkan nama .." value="<?php echo $p->nama; ?>">
 										<?php echo form_error('nama'); ?>
 									</div>
 
 									<div class="form-group">
 										<label>Email</label>
-										<input type="text" name="email" class="form-control" placeholder="Masukkan email .." value="<?php echo $p->pengguna_email; ?>">
+										<input type="text" name="email" class="form-control" placeholder="Masukkan email .." value="<?php echo $p->email; ?>">
 										<?php echo form_error('email'); ?>
 									</div>
 								</div>
