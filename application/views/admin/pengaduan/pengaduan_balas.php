@@ -34,10 +34,10 @@
                     <label>Email Pengadu</label>
                     <input type="text" name="email" class="form-control" placeholder="Masukkan nama pengaduan .." value="<?php echo $k->email_pengadu; ?>" readonly>
                   </div>
-                  <!-- <div class="form-group">
+                  <div class="form-group">
                     <label>Pesan</label>
-                    <input type="text" name="email" class="form-control" placeholder="Masukkan nama pengaduan .." value="<?php echo $k->isi_pengaduan; ?>" disabled>
-                  </div> -->
+                    <input type="text" name="email" class="form-control" placeholder="Masukkan nama pengaduan .." value="<?php echo $k->subjek; ?>" disabled>
+                  </div>
                   <div class="form-group">
                     <label>Subject</label>
                     <input type="text" name="subject" class="form-control" placeholder="Masukkan subject" value="<?php echo set_value('subject'); ?>">
@@ -71,30 +71,22 @@
             <h3 class="card-title">detail pesan</h3>
 
             <div class="card-tools">
-              <a href="#" class="btn btn-tool" title="Previous"><i class="fas fa-chevron-left"></i></a>
-              <a href="#" class="btn btn-tool" title="Next"><i class="fas fa-chevron-right"></i></a>
+              <!-- <a href="#" class="btn btn-tool" title="Previous"><i class="fas fa-chevron-left"></i></a>
+              <a href="#" class="btn btn-tool" title="Next"><i class="fas fa-chevron-right"></i></a> -->
             </div>
           </div>
           <!-- /.card-header -->
           <div class="card-body p-0">
             <div class="mailbox-read-info">
               <h5>isi laporan</h5>
-              <h6>dari: <?php echo $k->email_pengadu; ?>
+              <h6>
                 <span class="mailbox-read-time float-right"></span>
               </h6>
             </div>
             <!-- /.mailbox-read-info -->
             <div class="mailbox-controls with-border text-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-default btn-sm" data-container="body" title="Delete">
-                  <i class="far fa-trash-alt"></i>
-                </button>
-                <button type="button" class="btn btn-default btn-sm" data-container="body" title="Reply">
-                  <i class="fas fa-reply"></i>
-                </button>
-                <button type="button" class="btn btn-default btn-sm" data-container="body" title="Forward">
-                  <i class="fas fa-share"></i>
-                </button>
+
               </div>
               <!-- /.btn-group -->
               <button type="button" class="btn btn-default btn-sm" title="Print">
@@ -113,48 +105,48 @@
           <div class="card-footer bg-white">
             <ul class="mailbox-attachments d-flex align-items-stretch clearfix">
               <li>
-                <span class="mailbox-attachment-icon"><i class="far fa-file-pdf"></i></span>
+                <span class="mailbox-attachment-icon"><i class=""></i></span>
 
                 <div class="mailbox-attachment-info">
-                  <a href="#" class="mailbox-attachment-name"><i class="fas fa-paperclip"></i> Sep2014-report.pdf</a>
+                  <a href="#" class="mailbox-attachment-name"><i class="fas fa-paperclip"></i></a>
                   <span class="mailbox-attachment-size clearfix mt-1">
-                    <span>1,245 KB</span>
+                    <span></span>
                     <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
                   </span>
                 </div>
               </li>
               <li>
-                <span class="mailbox-attachment-icon"><i class="far fa-file-word"></i></span>
+                <span class="mailbox-attachment-icon"><i class=""></i></span>
 
                 <div class="mailbox-attachment-info">
-                  <a href="#" class="mailbox-attachment-name"><i class="fas fa-paperclip"></i> App Description.docx</a>
+                  <a href="#" class="mailbox-attachment-name"><i class="fas fa-paperclip"></i> </a>
                   <span class="mailbox-attachment-size clearfix mt-1">
-                    <span>1,245 KB</span>
+                    <span></span>
                     <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
                   </span>
                 </div>
               </li>
               <li>
-                <span class="mailbox-attachment-icon has-img"><img src="<?php echo base_url(); ?>adm/dist/img/photo1.png" alt="Attachment"></span>
+                <span class="mailbox-attachment-icon has-img"><img src="<?php echo base_url(); ?>adm/dist/img/" alt=""></span>
 
-                <div class="mailbox-attachment-info">
-                  <a href="#" class="mailbox-attachment-name"><i class="fas fa-camera"></i> photo1.png</a>
+                <!-- <div class="mailbox-attachment-info">
+                  <a href="#" class="mailbox-attachment-name"><i class=""></i></a>
                   <span class="mailbox-attachment-size clearfix mt-1">
-                    <span>2.67 MB</span>
+                    <span></span>
                     <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
                   </span>
                 </div>
               </li>
               <li>
-                <span class="mailbox-attachment-icon has-img"><img src="<?php echo base_url(); ?>adm/dist/img/photo2.png" alt="Attachment"></span>
+                <span class="mailbox-attachment-icon has-img"><img src="<?php echo base_url(); ?>adm/dist/img/" alt=""></span> -->
 
-                <div class="mailbox-attachment-info">
-                  <a href="#" class="mailbox-attachment-name"><i class="fas fa-camera"></i> photo2.png</a>
+                <!-- <div class="mailbox-attachment-info">
+                  <a href="#" class="mailbox-attachment-name"><i class=""></i></a>
                   <span class="mailbox-attachment-size clearfix mt-1">
-                    <span>1.9 MB</span>
+                    <span></span>
                     <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
                   </span>
-                </div>
+                </div> -->
               </li>
             </ul>
           </div>

@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -24,8 +25,7 @@ class Welcome extends CI_Controller {
 
 		date_default_timezone_set('Asia/Jakarta');
 		$this->load->model('m_data');
-
-    }
+	}
 	public function index()
 	{
 		$data['pengaturan'] = $this->m_data->get_data('pengaturan')->row();
@@ -33,16 +33,16 @@ class Welcome extends CI_Controller {
 		// var_dump($judul);
 		$kata_kata = explode(' ', $judul);
 
-// Ambil dua kata pertama
-$data['satu'] = $kata_kata[0] . ' ' . $kata_kata[1];
-$data['dua'] = $kata_kata[2] . ' ' . $kata_kata[3] . ' ' . $kata_kata[4];
-// var_dump($data);
+		// Ambil dua kata pertama
+		$data['satu'] = $kata_kata[0] . ' ' . $kata_kata[1];
+		$data['dua'] = $kata_kata[2] . ' ' . $kata_kata[3] . ' ' . $kata_kata[4];
+		// var_dump($data);
 		$this->load->view('front/layout/header');
 		$this->load->view('front/layout/navbar');
-		$this->load->view('front/index',$data);
+		$this->load->view('front/index', $data);
 		$this->load->view('front/layout/footer');
 	}
-	
+
 	public function about()
 	{
 		$this->load->view('front/layout/header');
@@ -57,6 +57,18 @@ $data['dua'] = $kata_kata[2] . ' ' . $kata_kata[3] . ' ' . $kata_kata[4];
 		$this->load->view('front/layout/header');
 		$this->load->view('front/layout/navbar');
 		$this->load->view('front/contact');
+		$this->load->view('front/layout/footer');
+	}
+
+	public function search()
+	{
+		$data = array(
+			'pengaduan' => $this->m_data->get_data('pengaduan')->result()
+		);
+
+		$this->load->view('front/layout/header');
+		$this->load->view('front/layout/navbar');
+		$this->load->view('front/search', $data);
 		$this->load->view('front/layout/footer');
 	}
 }

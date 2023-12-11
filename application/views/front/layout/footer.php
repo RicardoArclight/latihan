@@ -17,10 +17,67 @@
 
 <script src="<?php echo base_url(); ?>asset/assets/js/isotope.min.js"></script>
 <script src="<?php echo base_url(); ?>asset/assets/js/owl-carousel.js"></script>
-
 <script src="<?php echo base_url(); ?>asset/assets/js/tabs.js"></script>
 <!-- <script src="<?php echo base_url(); ?>asset/assets/js/swiper.js"></script> -->
-<script src="<?php echo base_url(); ?>asset/assets/js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="<?php echo base_url(); ?>asset/assets/script.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#summernote').summernote({
+      height: "200px",
+      toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'underline', 'clear']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture']]
+
+      ],
+      callbacks: {
+        onImageUpload: function(image) {
+          uploadImage(image[0]);
+        },
+        onMediaDelete: function(target) {
+          deleteImage(target[0].src);
+        }
+      }
+    });
+
+    function uploadImage(image) {
+      var data = new FormData();
+      data.append("image", image);
+      $.ajax({
+        url: "<?= site_url('pengaduan/upload_image') ?>",
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: data,
+        type: "POST",
+        success: function(url) {
+          $('#summernote').summernote("insertImage", url);
+        },
+        error: function(data) {
+          console.log(data);
+        }
+      });
+    }
+
+    function deleteImage(src) {
+      $.ajax({
+        data: {
+          src: src
+        },
+        type: "POST",
+        url: "<?= site_url('pengaduan/delete_image') ?>",
+        cache: false,
+        success: function(response) {
+          console.log(response);
+        }
+      });
+    }
+  });
+</script>
 <script>
   var interleaveOffset = 0.5;
 

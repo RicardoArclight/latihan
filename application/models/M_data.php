@@ -103,5 +103,10 @@ class M_data extends CI_Model
     }
     // AKHIR FUNGSI CRUD
 
-
+    //fungsi cari
+    public function caridata($tiket)
+    {
+        $this->db->where('tiket', $tiket);
+        return $this->db->get('pengaduan')->result();
+    }
 }

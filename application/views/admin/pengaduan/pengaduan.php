@@ -18,7 +18,7 @@
 										<th>Tiket</th>
 										<th width="15%">Nama</th>
 										<th>Email</th>
-										<th>Isi</th>
+										<th>Subjek</th>
 										<th>Tanggal</th>
 										<th>Status</th>
 										<th width="10%">OPSI</th>
@@ -35,7 +35,7 @@
 											<td><?php echo $k->nama_pengadu; ?></td>
 											<td><?php echo $k->email_pengadu; ?></td>
 											<!-- <td><?php echo $k->jenis_pengaduan; ?></td> -->
-											<td><?php echo $k->isi_pengaduan; ?></td>
+											<td><?php echo $k->subjek; ?></td>
 											<td><?php echo $k->tanggal_pengaduan; ?></td>
 											<td>
 												<?php
@@ -49,7 +49,38 @@
 											</td>
 											<td>
 												<a href="<?php echo base_url() . 'dashboard/pengaduan_balas/' . $k->id; ?>" class="btn btn-warning btn-sm"> <i class="fa fa-pen"></i> </a>
-												<a href="" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i> </a>
+												<a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal<?php echo $k->id; ?>"><i class="fa fa-trash"></i></a>
+
+												<!-- Modal -->
+												<div class="modal fade" id="hapusModal<?php echo $k->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLabel">Hapus Pengaduan</h5>
+																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																	<span aria-hidden="true">&times;</span>
+																</button>
+															</div>
+															<div class="modal-body">
+																Apakah anda yakin ingin menghapus pengaduan ini ?
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																<a href="<?php echo base_url() . 'dashboard/pengaduan_hapus/' . $k->id; ?>" class="btn btn-danger">Hapus</a>
+															</div>
+														</div>
+													</div>
+												</div>
+												<script>
+													document.getElementById('hapusButton').addEventListener('click', function() {
+														// Tambahkan logika penghapusan data di sini (gunakan AJAX untuk menghubungkan ke server-side)
+														// Setelah penghapusan berhasil, arahkan pengguna ke halaman yang diinginkan
+														// Gantilah alert ini dengan logika penghapusan sebenarnya
+
+														alert('Data berhasil dihapus.');
+														window.location.href = '<?php echo base_url() . 'dashboard/pengaduan'; ?>'; // Arahkan ke halaman yang diinginkan
+													});
+												</script>
 											</td>
 										</tr>
 									<?php } ?>

@@ -15,6 +15,8 @@
   <link href="<?php echo base_url(); ?>asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
+
+
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/assets/css/fontawesome.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/assets/css/templatemo-574-mexant.css">
@@ -22,7 +24,30 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/assets/css/animate.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>asset/assets/style.css">
 
+  <style>
+    .mx-auto {
+      width: 800px
+    }
+
+    .card {
+      margin-top: 10px;
+    }
+
+    .note-editor .dropdown-toggle::after {
+      all: unset;
+    }
+
+    .note-editor .note-dropdown-menu {
+      box-sizing: content-box;
+    }
+
+    .note-editor .note-modal-footer {
+      box-sizing: content-box;
+    }
+  </style>
   <!--
 
 TemplateMo 574 Mexant

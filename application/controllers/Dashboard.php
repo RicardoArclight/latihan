@@ -10,6 +10,7 @@ class Dashboard extends CI_Controller {
 		check_not_login();
 		check_admin();
 		$this->load->model('m_data');
+		$this->load->library('upload');
 
 		// cek session yang login, 
 		// jika session status tidak sama dengan session telah_login, berarti pengguna belum login

@@ -77,12 +77,24 @@
                 <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Email" required="">
               </fieldset>
             </div>
+            <div class="col-lg-6">
+              <fieldset>
+                <input type="subjek" name="subjek" id="subjek" placeholder="Subjek" autocomplete="on" required>
+              </fieldset>
+            </div>
           </div>
           <div class="col-lg-12">
             <fieldset>
-              <textarea name="pengaduan" id="message" placeholder="Silahkan isi"></textarea>
+              <textarea name="pengaduan" id="summernote" placeholder="Silahkan isi"></textarea>
             </fieldset>
+            <br>
           </div>
+          <div class="col-lg-6">
+            <div class="file-upload-wrapper" data-text="pilih file">
+              <input name="file-upload-field" type="file" class="file-upload-field" value="">
+            </div>
+          </div>
+          <br>
           <div class="col-lg-12">
             <fieldset>
               <button style="mb-3" type="submit" id="form-submit" class="orange-button">kirim</button>
@@ -94,41 +106,3 @@
   </div>
   </div>
 </section>
-
-
-<!-- <section class="partners">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-2 col-sm-4 col-6">
-          <div class="item">
-            <img src="<?php echo base_url(); ?>asset/assets/images/client-01.png" alt="">
-          </div>
-        </div>
-        <div class="col-lg-2 col-sm-4 col-6">
-          <div class="item">
-            <img src="<?php echo base_url(); ?>asset/assets/images/client-01.png" alt="">
-          </div>
-        </div>
-        <div class="col-lg-2 col-sm-4 col-6">
-          <div class="item">
-            <img src="<?php echo base_url(); ?>asset/assets/images/client-01.png" alt="">
-          </div>
-        </div>
-        <div class="col-lg-2 col-sm-4 col-6">
-          <div class="item">
-            <img src="<?php echo base_url(); ?>asset/assets/images/client-01.png" alt="">
-          </div>
-        </div>
-        <div class="col-lg-2 col-sm-4 col-6">
-          <div class="item">
-            <img src="<?php echo base_url(); ?>asset/assets/images/client-01.png" alt="">
-          </div>
-        </div>
-        <div class="col-lg-2 col-sm-4 col-6">
-          <div class="item">
-            <img src="<?php echo base_url(); ?>asset/assets/images/client-01.png" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
