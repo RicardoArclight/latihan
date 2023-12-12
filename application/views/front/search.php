@@ -24,7 +24,7 @@
                                         <table id="example2" class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th width="1%">NO</th>
+
                                                     <th>Tiket</th>
                                                     <th width="15%">Nama</th>
                                                     <th>Email</th>
@@ -35,34 +35,30 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php $no = 1;
-                                                foreach ($pengaduan as $k) { ?>
 
-                                                    <tr class="search_result">
-                                                        <td><?php echo $no++; ?></td>
-                                                        <td><?php echo $k->tiket; ?></td>
-                                                        <td><?php echo $k->nama_pengadu; ?></td>
-                                                        <td><?php echo $k->email_pengadu; ?></td>
-                                                        <td><?php echo $k->subjek; ?></td>
-                                                        <td><?php echo $k->tanggal_pengaduan; ?></td>
-                                                        <td>
-                                                            <?php
-                                                            if ($k->status_pengaduan == "Sudah") {
-                                                                echo "<span class='label label-success'>Sudah Ditanggapi</span>";
-                                                            } else {
-                                                                echo "<span class='label label-danger'>Belum Ditanggapi</span>";
-                                                            }
-                                                            ?>
+                                                <tr>
 
-                                                        </td>
-                                                        <td>
+                                                    <td><?php echo $pengaduan->tiket; ?></td>
+                                                    <td><?php echo $pengaduan->nama_pengadu; ?></td>
+                                                    <td><?php echo $pengaduan->email_pengadu; ?></td>
+                                                    <td><?php echo $pengaduan->subjek; ?></td>
+                                                    <td><?php echo $pengaduan->tanggal_pengaduan; ?></td>
+                                                    <td>
+                                                        <?php
+                                                        if ($pengaduan->status_pengaduan == "Sudah") {
+                                                            echo "<span class='label label-success'>Sudah Ditanggapi</span>";
+                                                        } else {
+                                                            echo "<span class='label label-danger'>Belum Ditanggapi</span>";
+                                                        }
+                                                        ?>
 
-                                                            <!-- <a href="<?php echo base_url() . 'dashboard/pengaduan_balas/' . $k->id; ?>" class="btn btn-warning btn-sm"> <i class="fa fa-pen"></i> </a> -->
+                                                    </td>
+                                                    <td>
 
-                                                        </td>
-                                                    </tr>
+                                                        <!-- <a href="<?php echo base_url() . 'dashboard/pengaduan_balas/' . $k->id; ?>" class="btn btn-warning btn-sm"> <i class="fa fa-pen"></i> </a> -->
 
-                                                <?php } ?>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>

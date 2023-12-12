@@ -106,7 +106,8 @@ class M_data extends CI_Model
     //fungsi cari
     public function caridata($tiket)
     {
+        $this->db->from('pengaduan');
         $this->db->where('tiket', $tiket);
-        return $this->db->get('pengaduan')->result();
+        return $this->db->get();
     }
 }

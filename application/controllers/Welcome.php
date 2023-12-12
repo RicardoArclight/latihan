@@ -62,8 +62,9 @@ class Welcome extends CI_Controller
 
 	public function search()
 	{
+		$tiket = $this->input->post('tiket');
 		$data = array(
-			'pengaduan' => $this->m_data->get_data('pengaduan')->result()
+			'pengaduan' => $this->m_data->caridata($tiket)->row()
 		);
 
 		$this->load->view('front/layout/header');

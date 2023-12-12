@@ -100,9 +100,8 @@
               <button style="mb-3" type="submit" id="form-submit" class="orange-button">kirim</button>
             </fieldset>
           </div>
+        </form>
       </div>
-      </form>
     </div>
-  </div>
   </div>
 </section>

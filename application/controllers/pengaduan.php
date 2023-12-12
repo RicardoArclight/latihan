@@ -21,6 +21,32 @@ class Pengaduan extends CI_Controller
 		$tanggal = date('Y-m-d H:i:s');
 		$tiket = 'P-' . date('Ymd') . str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
 
+		//config send mail
+		$config = array(
+			'mailtype'  => 'html',
+			'charset'   => 'utf-8',
+			'protocol'  => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_user' => 'ricardokaslana@gmail.com',  // Email gmail
+			'smtp_pass'   => 'rmosvvvobbnhlbsb',  // Password gmail
+			'smtp_port'   => 465,
+			'smtp_timeout' => 5,
+			'newline' => "\r\n"
+		);
+
+		$pesan = '<h1><p><b>' . $tiket . '</b></p></h1>';
+		$pesan .= '<p>silahkan simpan nomor tiket ini</p>';
+		$pesan .= '<p>Terimakasih telah melakukan Pengaduan ke Pusat Layanan Diskominfosantik Kalimantan Tengah</p>';
+		$kirim_pesan = array(
+			'message' => $pesan,
+		);
+		// format send mail
+		$this->email->initialize($config);
+		$this->email->from($config['smtp_user']);
+		$this->email->to($email); //email penerima
+		$this->email->subject($subjek); //subjek email
+		$this->email->message($kirim_pesan['message']);
+
 		$data = array(
 			'nama_pengadu' => $nama,
 			'email_pengadu' => $email,
@@ -33,6 +59,18 @@ class Pengaduan extends CI_Controller
 		);
 
 		$this->m_data->insert_data($data, 'pengaduan');
+
+		if ($this->email->send()) {
+			echo 'Sukses! email berhasil dikirim.';
+			redirect(base_url('contact'));
+		} else {
+			echo 'Error! email tidak dapat dikirim.';
+
+			$this->load->view('front/layout/header');
+			$this->load->view('front/layout/navbar');
+			$this->load->view('front/contact');
+			$this->load->view('front/layout/footer');
+		}
 
 		redirect(base_url('contact'));
 	}
