@@ -34,13 +34,10 @@
                     <label>Email Pengadu</label>
                     <input type="text" name="email" class="form-control" placeholder="Masukkan nama pengaduan .." value="<?php echo $k->email_pengadu; ?>" readonly>
                   </div>
-                  <div class="form-group">
-                    <label>Pesan</label>
-                    <input type="text" name="email" class="form-control" placeholder="Masukkan nama pengaduan .." value="<?php echo $k->subjek; ?>" disabled>
-                  </div>
+
                   <div class="form-group">
                     <label>Subject</label>
-                    <input type="text" name="subject" class="form-control" placeholder="Masukkan subject" value="<?php echo set_value('subject'); ?>">
+                    <input type="text" name="subject" class="form-control" placeholder="Masukkan subject" value="<?php echo $k->subjek; ?>" readonly>
                     <?php echo form_error('subject'); ?>
                   </div>
                   <div class="card-body">
@@ -63,8 +60,8 @@
 
           </div>
         </div>
-
       </div>
+
       <div class="col-md-6">
         <div class="card card-primary card-outline">
           <div class="card-header">
@@ -89,8 +86,8 @@
 
               </div>
               <!-- /.btn-group -->
-              <button type="button" class="btn btn-default btn-sm" title="Print">
-                <i class="fas fa-print"></i>
+              <!-- <button type="button" class="btn btn-default btn-sm" title="Print">
+                <i class="fas fa-print"></i> -->
               </button>
             </div>
             <!-- /.mailbox-controls -->
@@ -118,7 +115,7 @@
               <li>
                 <span class="mailbox-attachment-icon"><i class=""></i></span>
 
-                <div class="mailbox-attachment-info">
+                <!-- <div class="mailbox-attachment-info">
                   <a href="#" class="mailbox-attachment-name"><i class="fas fa-paperclip"></i> </a>
                   <span class="mailbox-attachment-size clearfix mt-1">
                     <span></span>
@@ -127,7 +124,7 @@
                 </div>
               </li>
               <li>
-                <span class="mailbox-attachment-icon has-img"><img src="<?php echo base_url(); ?>adm/dist/img/" alt=""></span>
+                <span class="mailbox-attachment-icon has-img"><img src="<?php echo base_url(); ?>adm/dist/img/" alt=""></span> -->
 
                 <!-- <div class="mailbox-attachment-info">
                   <a href="#" class="mailbox-attachment-name"><i class=""></i></a>

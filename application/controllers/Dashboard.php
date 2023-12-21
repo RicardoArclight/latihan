@@ -1,8 +1,9 @@
 <?php
-defined ('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
-    function __construct()
+class Dashboard extends CI_Controller
+{
+	function __construct()
 	{
 		parent::__construct();
 
@@ -18,16 +19,16 @@ class Dashboard extends CI_Controller {
 		if ($this->session->userdata('status') != "telah_login") {
 			redirect(base_url() . 'login?alert=belum_login');
 		}
-    }
+	}
 	public function index()
 	{
-		
+
 		// // hitung jumlah pengguna
 		$data['jumlah_pengguna'] = $this->m_data->get_data('pengguna')->num_rows();
 		// // hitung jumlah halaman
 		$data['jumlah_pengaduan'] = $this->m_data->get_data('pengaduan')->num_rows();
 
-		$data['jumlah_ditanggapi'] =  $this->db->query('SELECT * FROM pengaduan WHERE status_pengaduan = "Ditanggapi"')->num_rows();
+		$data['jumlah_ditanggapi'] =  $this->db->query('SELECT * FROM pengaduan WHERE status_pengaduan = "sudah"')->num_rows();
 
 		$this->load->view('admin/layout/header');
 		$this->load->view('admin/layout/navbar');
@@ -35,13 +36,13 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/dashboard', $data);
 		$this->load->view('admin/layout/footer');
 	}
-	
-    public function keluar()
+
+	public function keluar()
 	{
 		$this->session->sess_destroy();
 		redirect('login?alert=logout');
 	}
-    public function ganti_password()
+	public function ganti_password()
 	{
 		$this->load->view('admin/layout/header');
 		$this->load->view('admin/layout/navbar');
@@ -49,7 +50,7 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/ganti_password');
 		$this->load->view('admin/layout/footer');
 	}
-    public function ganti_password_aksi()
+	public function ganti_password_aksi()
 	{
 
 		// form validasi
@@ -91,13 +92,13 @@ class Dashboard extends CI_Controller {
 				redirect('admin/ganti_password?alert=gagal');
 			}
 		} else {
-		$this->load->view('admin/layout/header');
-		$this->load->view('admin/layout/navbar');
-		$this->load->view('admin/layout/sidebar');
-		$this->load->view('admin/ganti_password');
-		$this->load->view('admin/layout/footer');
+			$this->load->view('admin/layout/header');
+			$this->load->view('admin/layout/navbar');
+			$this->load->view('admin/layout/sidebar');
+			$this->load->view('admin/ganti_password');
+			$this->load->view('admin/layout/footer');
 		}
-    }
+	}
 	public function pengaduan()
 	{
 		$data = array(
@@ -122,7 +123,6 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/pengaduan/pengaduan_balas', $data);
 		$this->load->view('admin/layout/footer');
 	}
-
 	public function pengaduan_kirim()
 	{
 		$this->form_validation->set_rules('subject', 'subject', 'required');
@@ -145,7 +145,7 @@ class Dashboard extends CI_Controller {
 			$id = $this->input->post('id');
 			$email = $this->input->post('email');
 			$pesan = $this->input->post('pesan');
-			$subject = $this->input->post('subject');
+			$subjek = $this->input->post('subject');
 			$tgl = date('Y-m-d H:i:s');
 
 			$where = array(
@@ -164,12 +164,12 @@ class Dashboard extends CI_Controller {
 			$this->email->initialize($config);
 			$this->email->from($config['smtp_user']);
 			$this->email->to($email); //email penerima
-			$this->email->subject($subject); //subjek email
+			$this->email->subject($subjek); //subjek email
 			$this->email->message($pesan);
 
 			if ($this->email->send()) {
 				echo 'Sukses! email berhasil dikirim.';
-				redirect(base_url() . 'admin/pengaduan/pengaduan');
+				redirect(base_url() . 'dashboard/pengaduan');
 			} else {
 				echo 'Error! email tidak dapat dikirim.';
 				$id = $this->input->post('id');
@@ -195,7 +195,6 @@ class Dashboard extends CI_Controller {
 			$this->load->view('admin/layout/sidebar');
 			$this->load->view('admin/pengaduan/pengaduan_balas', $data);
 			$this->load->view('admin/layout/footer');
-			
 		}
 	}
 
@@ -206,11 +205,17 @@ class Dashboard extends CI_Controller {
 		);
 
 		$this->m_data->delete_data($where, 'pengaduan');
-
-		redirect(base_url() . 'admin/pengaduan');
+		$data = array(
+			'pengaduan' => $this->m_data->get_data('pengaduan')->result()
+		);
+		$this->load->view('admin/layout/header');
+		$this->load->view('admin/layout/navbar');
+		$this->load->view('admin/layout/sidebar');
+		$this->load->view('admin/pengaduan/pengaduan', $data);
+		$this->load->view('admin/layout/footer');
 	}
 	// END CRUD pengaduan
-	
+
 	public function profil()
 	{
 		// id pengguna yang sedang login
@@ -294,7 +299,7 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/pengguna/pengguna_tambah');
 		$this->load->view('admin/layout/footer');
 	}
-	
+
 	public function pengguna_aksi()
 	{
 		// Wajib isi
@@ -326,7 +331,7 @@ class Dashboard extends CI_Controller {
 
 			$this->m_data->insert_data($data, 'pengguna');
 
-			redirect(base_url() . 'admin/pengguna');
+			redirect(base_url() . 'dashboard/pengguna');
 		} else {
 			$this->load->view('admin/layout/header');
 			$this->load->view('admin/layout/navbar');
@@ -473,7 +478,7 @@ class Dashboard extends CI_Controller {
 			$deskripsi = $this->input->post('deskripsi');
 			$link_email = $this->input->post('link_email');
 			$link_wa = $this->input->post('link_wa');
-			
+
 
 			$where = array();
 
@@ -565,6 +570,4 @@ class Dashboard extends CI_Controller {
 			$this->load->view('admin/layout/footer');
 		}
 	}
-
-	
 }

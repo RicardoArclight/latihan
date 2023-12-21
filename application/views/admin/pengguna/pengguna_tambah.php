@@ -48,7 +48,7 @@
 									<select class="form-control" name="level">
 										<option value="">- Pilih Level -</option>
 										<option value="admin">Admin</option>
-										<option value="penulis">Penulis</option>
+										<option value="petugas">Petugas</option>
 									</select>
 									<?php echo form_error('level'); ?>
 								</div>

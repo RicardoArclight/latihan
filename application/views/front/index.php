@@ -8,11 +8,11 @@
             <div class="header-text">
               <h2><?php echo $satu ?><em></em><br><em><?php echo $dua ?></em></h2>
               <div class="div-dec"></div>
-              <form action="<?php echo base_url('welcome/search'); ?>" method="post">
+              <form action="<?php echo base_url('welcome/search'); ?>" id="contact" method="post">
                 <input class="form-control form-control-sidebar" name="tiket" value="" type="search" placeholder="cek pengaduan" aria-label="Search" required />
                 <P></P>
 
-                <button type="submit" class="btn btn-primary">Cari</button>
+                <button type="submit" id="form-submit" class="green-button">Cari</button>
 
               </form>
             </div>

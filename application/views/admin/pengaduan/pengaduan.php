@@ -71,16 +71,6 @@
 														</div>
 													</div>
 												</div>
-												<script>
-													document.getElementById('hapusButton').addEventListener('click', function() {
-														// Tambahkan logika penghapusan data di sini (gunakan AJAX untuk menghubungkan ke server-side)
-														// Setelah penghapusan berhasil, arahkan pengguna ke halaman yang diinginkan
-														// Gantilah alert ini dengan logika penghapusan sebenarnya
-
-														alert('Data berhasil dihapus.');
-														window.location.href = '<?php echo base_url() . 'dashboard/pengaduan'; ?>'; // Arahkan ke halaman yang diinginkan
-													});
-												</script>
 											</td>
 										</tr>
 									<?php } ?>

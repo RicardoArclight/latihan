@@ -24,7 +24,7 @@
     </div>
 
     <!-- SidebarSearch Form -->
-    <div class="form-inline">
+    <!-- <div class="form-inline">
       <div class="input-group" data-widget="sidebar-search">
         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search" />
         <div class="input-group-append">
@@ -33,7 +33,7 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
@@ -57,23 +57,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <!-- <a href="<?php echo base_url() . '' ?>" class="nav-link <?= $this->uri->segment(2) == 'kategori' ? 'active' : '' ?>">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>KATEGORI</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="<?php echo base_url() . '' ?>" class="nav-link <?= $this->uri->segment(2) == 'polsek' ? 'active' : '' ?>">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>POLSEK</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="<?php echo base_url() . '' ?>" class="nav-link <?= $this->uri->segment(2) == 'satker' ? 'active' : '' ?>">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>SATKER</p>
-                    </a>
-                  </li> -->
+
               <li class="nav-item">
                 <a href="<?php echo base_url() . '' ?>" class="nav-link <?= $this->uri->segment(2) == 'aplikasi' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
@@ -92,7 +76,7 @@
         }
         ?>
         <?php
-        if ($this->session->userdata('level') == "admin" || $this->session->userdata('level') == "penulis") {
+        if ($this->session->userdata('level') == "admin" || $this->session->userdata('level') == "petugas") {
         ?>
           <!-- <li class="nav-item">
                 <a href="<?php echo base_url() . '' ?>" class="nav-link <?= $this->uri->segment(2) == 'berita' ? 'active' : '' ?>">
