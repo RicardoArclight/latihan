@@ -57,23 +57,47 @@ class Pengaduan extends CI_Controller
 			'status_pengaduan' => "Belum",
 			'tiket' => $tiket
 		);
+		if (!empty($_FILES['upload_file']['name'])) {
 
-		$this->m_data->insert_data($data, 'pengaduan');
+			$config1['upload_path']   = './asset/assets/dokumen';
+			$config1['allowed_types'] = 'png|jpg|doc|pdf';
+			$config1['max_size']      = 100000; //100mb
+			$config1['file_name']     = $tiket;
 
-		if ($this->email->send()) {
-			echo 'Sukses! email berhasil dikirim.';
-			redirect(base_url('contact'));
+			$this->upload->initialize($config1);
+
+			if ($this->upload->do_upload('upload_file')) {
+				// mengambil data tentang file yang diupload
+				$file = $this->upload->data();
+
+				$file = $file['file_name'];
+				$data['upload_file'] = $file;
+				$this->m_data->insert_data($data, 'pengaduan');
+			}
 		} else {
-			echo 'Error! email tidak dapat dikirim.';
-
-			$this->load->view('front/layout/header');
-			$this->load->view('front/layout/navbar');
-			$this->load->view('front/contact');
-			$this->load->view('front/layout/footer');
+			$this->m_data->insert_data($data, 'pengaduan');
 		}
+
+
+		// if ($this->email->send()) {
+		// 	echo 'Sukses! email berhasil dikirim.';
+		// 	redirect(base_url('contact'));
+		// } else {
+		// 	echo 'Error! email tidak dapat dikirim.';
+
+		// 	$this->load->view('front/layout/header');
+		// 	$this->load->view('front/layout/navbar');
+		// 	$this->load->view('front/contact');
+		// 	$this->load->view('front/layout/footer');
+		// }
+
 
 		redirect(base_url('contact'));
 	}
+
+
+
+
 	//Upload image summernote
 	function upload_image()
 	{
@@ -91,13 +115,13 @@ class Pengaduan extends CI_Controller
 				$config['source_image'] = 'asset/assets/dokumen/' . $data['file_name'];
 				$config['create_thumb'] = FALSE;
 				$config['maintain_ratio'] = TRUE;
-				$config['quality'] = '60%';
-				$config['width'] = 800;
-				$config['height'] = 800;
+				$config['quality'] = '100%';
+				$config['width'] = 1920;
+				$config['height'] = 1080;
 				$config['new_image'] = 'asset/assets/dokumen/' . $data['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
-				echo base_url() . 'asset/assets/images/' . $data['file_name'];
+				echo base_url() . 'asset/assets/dokumen/' . $data['file_name'];
 			}
 		}
 	}

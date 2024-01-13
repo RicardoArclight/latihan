@@ -23,21 +23,21 @@
       </div>
       <div class="col-lg-10 offset-lg-1">
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-6">
             <div class="info-item">
               <i class="fa fa-envelope"></i>
               <h4>Email Address</h4>
               <p style="font-size: 12px;">Diskominfosantiprovkal@gmail.com</p>
             </div>
           </div>
-          <div class="col-lg-4">
+          <!-- <div class="col-lg-4">
             <div class="info-item">
               <i class="fa-brands fa-whatsapp" style="color: #1a551e;"></i>
               <h4>Whatsapp</h4>
               <a href="#">010-020-0340</a>
             </div>
-          </div>
-          <div class="col-lg-4">
+          </div> -->
+          <div class="col-lg-6">
             <div class="info-item">
               <i class="fa fa-map-marked-alt"></i>
               <h4>Alamat</h4>
@@ -55,7 +55,7 @@
     <div class="row">
       <div class="col-lg-6 offset-lg-3">
         <div class="section-heading">
-          <h6>Pengaduan</h6>
+          <h6>Helpdesk Service</h6>
           <h4>silahkan tuliskan pengaduan anda di form</h4>
         </div>
       </div>
@@ -90,10 +90,29 @@
             <br>
           </div>
           <div class="col-lg-6">
-            <div class="file-upload-wrapper" data-text="pilih file">
-              <input name="file-upload-field" type="file" class="file-upload-field" value="">
-            </div>
+            <input type="file" name="upload_file" id="file-input" onchange="toggleCancelButton()">
+            <button type="button" id="cancel-upload" style="display: none;" onclick="cancelUpload()">Batal Upload</button>
           </div>
+          <script>
+            function toggleCancelButton() {
+              var fileInput = document.getElementById('file-input');
+              var cancelButton = document.getElementById('cancel-upload');
+
+              if (fileInput.files.length > 0) {
+                cancelButton.style.display = 'inline-block';
+              } else {
+                cancelButton.style.display = 'none';
+              }
+            }
+
+            function cancelUpload() {
+              var fileInput = document.getElementById('file-input');
+              var cancelButton = document.getElementById('cancel-upload');
+
+              fileInput.value = ''; // Menghapus nilai input file
+              cancelButton.style.display = 'none'; // Menyembunyikan tombol "Batal Upload"
+            }
+          </script>
           <br>
           <div class="col-lg-12">
             <fieldset>

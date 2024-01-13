@@ -9,7 +9,7 @@ class Dashboard extends CI_Controller
 
 		date_default_timezone_set('Asia/Jakarta');
 		check_not_login();
-		check_admin();
+		// check_admin();
 		$this->load->model('m_data');
 		$this->load->library('upload');
 

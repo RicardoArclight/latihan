@@ -2,19 +2,24 @@
   <section class="content-header">
     <h1>
       Pengaduan
-      <small>Tanggapi Pengaduan</small>
     </h1>
+    <h1><small>Tanggapi Pengaduan</small></h1>
+  </section>
+
+  <section class="content">
+    <div class="row">
+      <div class="col-md-6">
+        <a href="<?php echo base_url() . 'dashboard/pengaduan'; ?>" class="btn btn-sm btn-primary">Kembali</a>
+        <br />
+        <br />
+      </div>
+    </div>
   </section>
 
   <section class="content">
 
     <div class="row">
       <div class="col-md-6">
-        <a href="<?php echo base_url() . 'dashboard/pengaduan'; ?>" class="btn btn-sm btn-primary">Kembali</a>
-
-        <br />
-        <br />
-
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">Pengaduan</h3>
@@ -61,7 +66,8 @@
           </div>
         </div>
       </div>
-
+      <br />
+      <br />
       <div class="col-md-6">
         <div class="card card-primary card-outline">
           <div class="card-header">
@@ -75,21 +81,13 @@
           <!-- /.card-header -->
           <div class="card-body p-0">
             <div class="mailbox-read-info">
-              <h5>isi laporan</h5>
+              <h5>isi laporan :</h5>
               <h6>
                 <span class="mailbox-read-time float-right"></span>
               </h6>
             </div>
             <!-- /.mailbox-read-info -->
-            <div class="mailbox-controls with-border text-center">
-              <div class="btn-group">
 
-              </div>
-              <!-- /.btn-group -->
-              <!-- <button type="button" class="btn btn-default btn-sm" title="Print">
-                <i class="fas fa-print"></i> -->
-              </button>
-            </div>
             <!-- /.mailbox-controls -->
             <div class="mailbox-read-message">
               <p><?php echo $k->isi_pengaduan; ?></p>
@@ -114,36 +112,6 @@
               </li>
               <li>
                 <span class="mailbox-attachment-icon"><i class=""></i></span>
-
-                <!-- <div class="mailbox-attachment-info">
-                  <a href="#" class="mailbox-attachment-name"><i class="fas fa-paperclip"></i> </a>
-                  <span class="mailbox-attachment-size clearfix mt-1">
-                    <span></span>
-                    <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
-                  </span>
-                </div>
-              </li>
-              <li>
-                <span class="mailbox-attachment-icon has-img"><img src="<?php echo base_url(); ?>adm/dist/img/" alt=""></span> -->
-
-                <!-- <div class="mailbox-attachment-info">
-                  <a href="#" class="mailbox-attachment-name"><i class=""></i></a>
-                  <span class="mailbox-attachment-size clearfix mt-1">
-                    <span></span>
-                    <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
-                  </span>
-                </div>
-              </li>
-              <li>
-                <span class="mailbox-attachment-icon has-img"><img src="<?php echo base_url(); ?>adm/dist/img/" alt=""></span> -->
-
-                <!-- <div class="mailbox-attachment-info">
-                  <a href="#" class="mailbox-attachment-name"><i class=""></i></a>
-                  <span class="mailbox-attachment-size clearfix mt-1">
-                    <span></span>
-                    <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
-                  </span>
-                </div> -->
               </li>
             </ul>
           </div>

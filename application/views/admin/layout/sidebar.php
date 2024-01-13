@@ -59,12 +59,6 @@
               <li class="nav-item">
 
               <li class="nav-item">
-                <a href="<?php echo base_url() . '' ?>" class="nav-link <?= $this->uri->segment(2) == 'aplikasi' ? 'active' : '' ?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>APLIKASI</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="<?php echo base_url() . 'dashboard/pengguna' ?>" class="nav-link <?= $this->uri->segment(2) == 'pengguna' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>PENGGUNA & HAK AKSES</p>
@@ -75,33 +69,16 @@
         <?php
         }
         ?>
-        <?php
-        if ($this->session->userdata('level') == "admin" || $this->session->userdata('level') == "petugas") {
-        ?>
-          <!-- <li class="nav-item">
-                <a href="<?php echo base_url() . '' ?>" class="nav-link <?= $this->uri->segment(2) == 'berita' ? 'active' : '' ?>">
-                  <i class="nav-icon fas fa-pen"></i>
-                  <p>BERITA</p>
-                </a>
-              </li> -->
-          <!-- <li class="nav-item">
-                <a href="<?php echo base_url() . '' ?>" class="nav-link <?= $this->uri->segment(2) == 'gallery' ? 'active' : '' ?>">
-                  <i class="nav-icon fas fa-image"></i>
-                  <p>GALERI</p>
-                </a>
-              </li> -->
-        <?php
-        }
-        ?>
+
+        <li class="nav-item">
+          <a href="<?php echo base_url() . 'dashboard/pengaduan' ?>" class="nav-link <?= $this->uri->segment(2) == 'pengaduan' ? 'active' : '' ?>">
+            <i class="nav-icon fa fa-envelope"></i>
+            <p>PENGADUAN</p>
+          </a>
+        </li>
         <?php
         if ($this->session->userdata('level') == "admin") {
         ?>
-          <li class="nav-item">
-            <a href="<?php echo base_url() . 'dashboard/pengaduan' ?>" class="nav-link <?= $this->uri->segment(2) == 'pengaduan' ? 'active' : '' ?>">
-              <i class="nav-icon fa fa-envelope"></i>
-              <p>PENGADUAN</p>
-            </a>
-          </li>
           <li class="nav-item">
             <a href="<?php echo base_url() . 'dashboard/pengaturan' ?>" class="nav-link <?= $this->uri->segment(2) == 'pengaturan' ? 'active' : '' ?>">
               <i class="nav-icon fa fa-cog"></i>
