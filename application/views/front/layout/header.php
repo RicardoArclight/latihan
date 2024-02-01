@@ -16,7 +16,6 @@
 
 
 
-
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/assets/css/fontawesome.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/assets/css/templatemo-574-mexant.css">
@@ -27,9 +26,15 @@
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/assets/style.css">
 
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>adm/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>adm/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>adm/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
   <style>
     .mx-auto {
-      width: 800px
+      width: 1000px;
+      min-height: 200px;
     }
 
     .card {

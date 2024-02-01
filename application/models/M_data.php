@@ -110,4 +110,9 @@ class M_data extends CI_Model
         $this->db->where('tiket', $tiket);
         return $this->db->get();
     }
+
+    public function simpan_pengaduan($data)
+    {
+        $this->db->insert('pengaduan', $data);
+    }
 }

@@ -5,6 +5,16 @@
         <div class="header-text">
           <h2>silahkan laporkan permasalahan anda</h2>
           <div class="div-dec"></div>
+          <div class="rules">
+            <h6>
+              Mohon diingat, pengaduan hanya diterima jika terdapat kesalahan atau keluhan yang terkait dengan bidang yang ada di Dinas Komunikasi Informatika Persandian dan Statistik Provinsi Kalimantan Tengah.
+            </h6>
+            <br>
+            <h6>Pengaduan diluar dari ketentuan tersebut tidak akan ditanggapi.</h6>
+            <br>
+            <br>
+            <h6>scroll ke bawah untuk melanjutkan.</h6>
+          </div>
         </div>
       </div>
     </div>
@@ -56,11 +66,11 @@
       <div class="col-lg-6 offset-lg-3">
         <div class="section-heading">
           <h6>Helpdesk Service</h6>
-          <h4>silahkan tuliskan pengaduan anda di form</h4>
+          <h4>silahkan laporkan pengaduan anda sesuai dengan ketentuan yang ditetapkan</h4>
         </div>
       </div>
       <div class="col-lg-10 offset-lg-1">
-        <form id="contact" action="<?php echo base_url() . 'pengaduan/pengaduan_aksi'; ?>" method="post">
+        <form id="contact" action="<?php echo base_url() . 'pengaduan/pengaduan_aksi'; ?>" method="post" enctype="multipart/form-data">
           <div class="row">
             <div class="col-lg-6">
               <fieldset>
@@ -76,6 +86,7 @@
               <fieldset>
                 <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Email" required="">
               </fieldset>
+              <label for="exampleFormControlInput1" class="alert alert-warning">*wajib menggunakan Gmail</label>
             </div>
             <div class="col-lg-6">
               <fieldset>
@@ -124,3 +135,4 @@
     </div>
   </div>
 </section>
+<div style="height: 60px;"></div>

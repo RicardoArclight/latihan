@@ -215,6 +215,37 @@ section {
   color: #212741;
 }
 
+.rules h4 {
+  margin-top: 10px;
+  line-height: 40px;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #ffffff;
+
+}
+.rules h5 {
+  margin-top: 10px;
+  line-height: 40px;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #ffffff;
+}
+.rules h6 {
+  margin-top: 10px;
+  line-height: 40px;
+  font-size: 25px;
+  font-weight: 700;
+  font-family: 'trebuchet MS';
+  text-transform: capitalize;
+  color: #ffffff;
+}
+
+
+
+
+
 .section-heading p {
   margin-top: 30px;
 }
@@ -777,8 +808,16 @@ banner
 
 .slide-inner .header-text h2 em {
   font-style: normal;
+  font-size: 9vmin;
+ 
+  color: #0bc6d3;
+}
+
+.slide-inner .header-text h2 en {
+  font-style: italic;
+  font-size: 9vmin;
   
-  color: #ff511a;
+  color: #ffffff;
 }
 
 .slide-inner .header-text .buttons {

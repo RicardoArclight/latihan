@@ -34,6 +34,7 @@ class Welcome extends CI_Controller
 		$kata_kata = explode(' ', $judul);
 
 		// Ambil dua kata pertama
+
 		$data['satu'] = $kata_kata[0] . ' ' . $kata_kata[1];
 		$data['dua'] = $kata_kata[2] . ' ' . $kata_kata[3] . ' ' . $kata_kata[4];
 		// var_dump($data);

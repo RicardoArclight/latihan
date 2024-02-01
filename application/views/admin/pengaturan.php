@@ -70,8 +70,8 @@
 
 								<div class="form-group">
 									<label>token Gmail</label>
-									<input type="text" name="link_wa" class="form-control" placeholder="Masukkan No Whatsapp.." value="<?php echo $pengaturan->link_wa; ?>">
-									<?php echo form_error('link_wa'); ?>
+									<input type="text" name="token" class="form-control" placeholder="Masukkan token.." value="<?php echo $pengaturan->token; ?>">
+									<?php echo form_error('token'); ?>
 								</div>
 
 

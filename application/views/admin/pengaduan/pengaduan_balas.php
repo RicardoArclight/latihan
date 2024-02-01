@@ -68,7 +68,7 @@
       </div>
       <br />
       <br />
-      <div class="col-md-6">
+      <div class="col-md-6" id="printSection">
         <div class="card card-primary card-outline">
           <div class="card-header">
             <h3 class="card-title">detail pesan</h3>
@@ -92,41 +92,65 @@
             <div class="mailbox-read-message">
               <p><?php echo $k->isi_pengaduan; ?></p>
 
-
             </div>
-            <!-- /.mailbox-read-message -->
-          </div>
-          <!-- /.card-body -->
-          <div class="card-footer bg-white">
-            <ul class="mailbox-attachments d-flex align-items-stretch clearfix">
-              <li>
-                <span class="mailbox-attachment-icon"><i class=""></i></span>
 
-                <div class="mailbox-attachment-info">
-                  <a href="#" class="mailbox-attachment-name"><i class="fas fa-paperclip"></i></a>
-                  <span class="mailbox-attachment-size clearfix mt-1">
-                    <span></span>
-                    <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
-                  </span>
-                </div>
-              </li>
-              <li>
-                <span class="mailbox-attachment-icon"><i class=""></i></span>
-              </li>
-            </ul>
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">file terlampir</h3>
+              </div>
+              <div class="card-body">
+                <?php if (file_exists('asset/assets/dokumen/' . $k->upload_file)) : ?>
+                  <p><strong>Nama File:</strong> <?= $k->upload_file; ?></p>
+                  <p><strong>Ukuran File:</strong> <?= get_file_size('asset/assets/dokumen/' . $k->upload_file); ?></p>
+                  <a href="<?= base_url('asset/assets/dokumen/' . $k->upload_file); ?>" class="btn btn-primary" download>
+                    <i class="fas fa-cloud-download-alt"></i> Download
+                  </a>
+                <?php else : ?>
+                  <p>Belum ada file yang di-upload atau file tidak ditemukan.</p>
+                <?php endif; ?>
+              </div>
+            </div>
+
           </div>
-          <!-- /.card-footer -->
+
           <div class="card-footer">
             <div class="float-right">
             </div>
-            <button type="button" class="btn btn-default"><i class="fas fa-print"></i> Print</button>
+            <button type="button" class="btn btn-default" onclick="printContent()"><i class="fas fa-print"></i> Print</button>
           </div>
-          <!-- /.card-footer -->
+
         </div>
-        <!-- /.card -->
+
       </div>
     </div>
 
   </section>
 
 </div>
+
+<script>
+  function printContent() {
+    var printWindow = window.open('', '_blank');
+    printWindow.document.write('<html><head><title>Cetak Pengaduan</title></head><body>');
+
+    // Menambahkan bagian-bagian yang diinginkan
+    printWindow.document.write('<h3>Nama Pengadu: <?php echo $k->nama_pengadu; ?></h3>');
+    printWindow.document.write('<h3>Email Pengadu: <?php echo $k->email_pengadu; ?></h3>');
+    printWindow.document.write('<h3>Subject: <?php echo $k->subjek; ?></h3>');
+    printWindow.document.write('<p>Detail Pesan: <?php echo $k->isi_pengaduan; ?></p>');
+
+    // Menambahkan informasi file terlampir jika ada
+    <?php if (file_exists('asset/assets/dokumen/' . $k->upload_file)) : ?>
+      printWindow.document.write('<p><strong>Nama File Terlampir:</strong> <?= $k->upload_file; ?></p>');
+      printWindow.document.write('<p><strong>Ukuran File Terlampir:</strong> <?= get_file_size('asset/assets/dokumen/' . $k->upload_file); ?></p>');
+
+      // Menambahkan tag img untuk menampilkan gambar
+      var imgPath = '<?php echo base_url('asset/assets/dokumen/' . $k->upload_file); ?>';
+      printWindow.document.write('<img src="' + imgPath + '" style="max-width: 50%;" />');
+    <?php endif; ?>
+
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.print();
+  }
+</script>

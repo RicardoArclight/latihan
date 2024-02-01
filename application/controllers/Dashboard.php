@@ -130,13 +130,18 @@ class Dashboard extends CI_Controller
 
 		if ($this->form_validation->run() != false) {
 
+			$data['pengaturan'] = $this->m_data->get_data('pengaturan')->row();
+
+			$email = $data['pengaturan']->link_email;
+			$token = $data['pengaturan']->token;
+
 			$config = array(
 				'mailtype'  => 'html',
 				'charset'   => 'utf-8',
 				'protocol'  => 'smtp',
 				'smtp_host' => 'ssl://smtp.googlemail.com',
-				'smtp_user' => 'ricardokaslana@gmail.com',  // Email gmail
-				'smtp_pass'   => 'rmosvvvobbnhlbsb',  // Password gmail
+				'smtp_user' => 	 $email,  // Email gmail
+				'smtp_pass'   => $token,  // Password gmail
 				'smtp_port'   => 465,
 				'smtp_timeout' => 5,
 				'newline' => "\r\n"
@@ -477,7 +482,7 @@ class Dashboard extends CI_Controller
 			$nama = $this->input->post('nama');
 			$deskripsi = $this->input->post('deskripsi');
 			$link_email = $this->input->post('link_email');
-			$link_wa = $this->input->post('link_wa');
+			$token = $this->input->post('token');
 
 
 			$where = array();
@@ -486,7 +491,7 @@ class Dashboard extends CI_Controller
 				'nama' => $nama,
 				'deskripsi' => $deskripsi,
 				'link_email' => $link_email,
-				'link_wa' => $link_wa,
+				'token' => $token,
 			);
 
 			// update pengaturan

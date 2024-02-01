@@ -21,14 +21,19 @@ class Pengaduan extends CI_Controller
 		$tanggal = date('Y-m-d H:i:s');
 		$tiket = 'P-' . date('Ymd') . str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
 
+
+		$data['pengaturan'] = $this->m_data->get_data('pengaturan')->row();
+
+		$email_admin = $data['pengaturan']->link_email;
+		$token = $data['pengaturan']->token;
 		//config send mail
 		$config = array(
 			'mailtype'  => 'html',
 			'charset'   => 'utf-8',
 			'protocol'  => 'smtp',
 			'smtp_host' => 'ssl://smtp.googlemail.com',
-			'smtp_user' => 'ricardokaslana@gmail.com',  // Email gmail
-			'smtp_pass'   => 'rmosvvvobbnhlbsb',  // Password gmail
+			'smtp_user' => $email_admin,  // Email gmail
+			'smtp_pass'   => $token,  // Password gmail
 			'smtp_port'   => 465,
 			'smtp_timeout' => 5,
 			'newline' => "\r\n"
@@ -36,7 +41,9 @@ class Pengaduan extends CI_Controller
 
 		$pesan = '<h1><p><b>' . $tiket . '</b></p></h1>';
 		$pesan .= '<p>silahkan simpan nomor tiket ini</p>';
-		$pesan .= '<p>Terimakasih telah melakukan Pengaduan ke Pusat Layanan Diskominfosantik Kalimantan Tengah</p>';
+		$pesan .= '<p>Tiket digunakan untuk melihat status pengaduan</p>';
+		$pesan .= '<br>
+		<br><center><p><b>Terimakasih telah melakukan Pengaduan ke Pusat Layanan Diskominfosantik Kalimantan Tengah<b></p></center>';
 		$kirim_pesan = array(
 			'message' => $pesan,
 		);
@@ -57,11 +64,11 @@ class Pengaduan extends CI_Controller
 			'status_pengaduan' => "Belum",
 			'tiket' => $tiket
 		);
-		if (!empty($_FILES['upload_file']['name'])) {
 
-			$config1['upload_path']   = './asset/assets/dokumen';
+		if (file_exists($_FILES['upload_file']['tmp_name'])) {
+			$config1['upload_path']   = 'asset/assets/dokumen';
 			$config1['allowed_types'] = 'png|jpg|doc|pdf';
-			$config1['max_size']      = 100000; //100mb
+			$config1['max_size']      = 100000; // 100mb
 			$config1['file_name']     = $tiket;
 
 			$this->upload->initialize($config1);
@@ -70,14 +77,17 @@ class Pengaduan extends CI_Controller
 				// mengambil data tentang file yang diupload
 				$file = $this->upload->data();
 
-				$file = $file['file_name'];
-				$data['upload_file'] = $file;
+				$file_name = $file['file_name'];
+				$data['upload_file'] = $file_name;
 				$this->m_data->insert_data($data, 'pengaduan');
+			} else {
+				// Tampilkan pesan error jika upload gagal
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
 			}
 		} else {
 			$this->m_data->insert_data($data, 'pengaduan');
 		}
-
 
 		// if ($this->email->send()) {
 		// 	echo 'Sukses! email berhasil dikirim.';
@@ -92,46 +102,8 @@ class Pengaduan extends CI_Controller
 		// }
 
 
+
+
 		redirect(base_url('contact'));
-	}
-
-
-
-
-	//Upload image summernote
-	function upload_image()
-	{
-		if (isset($_FILES["image"]["name"])) {
-			$config['upload_path'] = 'asset/assets/dokumen/';
-			$config['allowed_types'] = 'jpg|jpeg|png|gif';
-			$this->upload->initialize($config);
-			if (!$this->upload->do_upload('image')) {
-				$this->upload->display_errors();
-				return FALSE;
-			} else {
-				$data = $this->upload->data();
-				//Compress Image
-				$config['image_library'] = 'gd2';
-				$config['source_image'] = 'asset/assets/dokumen/' . $data['file_name'];
-				$config['create_thumb'] = FALSE;
-				$config['maintain_ratio'] = TRUE;
-				$config['quality'] = '100%';
-				$config['width'] = 1920;
-				$config['height'] = 1080;
-				$config['new_image'] = 'asset/assets/dokumen/' . $data['file_name'];
-				$this->load->library('image_lib', $config);
-				$this->image_lib->resize();
-				echo base_url() . 'asset/assets/dokumen/' . $data['file_name'];
-			}
-		}
-	}
-	//Delete image summernote
-	function delete_image()
-	{
-		$src = $this->input->post('src');
-		$file_name = str_replace(base_url(), '', $src);
-		if (unlink($file_name)) {
-			echo 'File Delete Successfully';
-		}
 	}
 }
